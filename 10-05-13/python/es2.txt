@@ -1,0 +1,97 @@
+#facciata laterale
+
+points1=[[0.07, 4.67], [-0.01, 5.37], [0.65, 5.38], [1.39, 5.45]]
+c1=MAP(BEZIER(S1)(points1))(INTERVALS(1)(32))
+
+points2=[[1.39, 5.45], [2.16, 5.93], [2.65, 5.93], [3.68, 5.77]]
+c2=MAP(BEZIER(S1)(points2))(INTERVALS(1)(32))
+
+points3=[[3.68, 5.75], [3.67, 5.85], [4.4, 5.48], [4.73, 5.47]]
+c3=MAP(BEZIER(S1)(points3))(INTERVALS(1)(32))
+
+points4=[[4.7, 5.45], [4.64, 5.36], [5.32, 4.68], [4.14, 4.71]]
+c4=MAP(BEZIER(S1)(points4))(INTERVALS(1)(32))
+
+points5=[[3.32, 4.68], [3.43, 5.5], [4.13, 5.07], [4.14, 4.71]]
+c5=MAP(BEZIER(S1)(points5))(INTERVALS(1)(32))
+
+points6=[[3.32, 4.65], [2.78, 4.63], [1.74, 4.64], [1.34, 4.62]]
+c6=MAP(BEZIER(S1)(points6))(INTERVALS(1)(32))
+
+points7=[[0.07, 4.67], [-0.01, 5.37], [0.65, 5.38], [1.39, 5.45]]
+c7=MAP(BEZIER(S1)(points7))(INTERVALS(1)(32))
+
+points8=[[0.51, 4.68], [0.67, 5.64], [1.52, 5], [1.34, 4.63]]
+c8=MAP(BEZIER(S1)(points8))(INTERVALS(1)(32))
+
+points9=[[0.07, 4.7], [0.16, 4.68], [0.27, 4.65], [0.51, 4.69]]
+c9=MAP(BEZIER(S1)(points9))(INTERVALS(1)(32))
+
+
+a=STRUCT([c1,c2,c3,c4,c5,c6,c7,c8,c9])
+
+#VIEW(a)
+
+####################################
+
+#facciata frontale
+
+points1f=[[0.26, 1.04], [0.21, 1.54], [0.23, 1.67], [0.53, 2.18]]
+c1f=MAP(BEZIER(S1)(points1f))(INTERVALS(1)(32))
+
+points2f=[[1.77, 2.2], [1.34, 2.28], [0.75, 2.27], [0.53, 2.18]]
+c2f=MAP(BEZIER(S1)(points2f))(INTERVALS(1)(32))
+
+points3f=[[1.77, 2.2], [2, 1.85], [2.24, 1.63], [2.05, 1.06]]
+c3f=MAP(BEZIER(S1)(points3f))(INTERVALS(1)(32))
+
+points4f=[[0.29, 1.04], [0.67, 1.03], [1.89, 0.96], [2.05, 1.06]]
+c4f=MAP(BEZIER(S1)(points4f))(INTERVALS(1)(32))
+
+
+af=STRUCT([c1f,c2f,c3f,c4f])
+
+#VIEW(af)
+
+##################################################################
+
+#facciata dall'alto
+
+
+points1a=[[0.47, 4.17], [1.62, 4.39], [4.37, 4.37], [4.63, 4.04]]
+c1a=MAP(BEZIER(S1)(points1a))(INTERVALS(1)(32))
+
+points2a=[[4, 2.47], [5.52, 2.49], [4.49, 4.45], [4.63, 4.04]]
+c2a=MAP(BEZIER(S1)(points2a))(INTERVALS(1)(32))
+
+points3a=[[4, 2.47], [3.84, 2.44], [0.85, 2.33], [0.43, 2.54]]
+c3a=MAP(BEZIER(S1)(points3a))(INTERVALS(1)(32))
+
+points4a=[[0.53, 4.2], [0, 4.25], [-0.03, 2.65], [0.43, 2.54]]
+c4a=MAP(BEZIER(S1)(points4a))(INTERVALS(1)(32))
+
+
+aa=STRUCT([c1a,c2a,c3a,c4a])
+
+
+################################################################
+#traslazioni
+
+a=T(2)(-1.4)(a)
+a=R([2,3])(PI/2)(a)
+a=T(3)(-3.3)(a)
+a=T(2)(3.31)(a)
+
+
+af=R([2,3])(PI/2)(af)
+af=R([1,2])(PI/2)(af)
+af=T(3)(-1.1)(af)
+af=T(2)(2.2)(af)
+af=T(1)(1.8)(af)
+
+aa=T(3)(0.5)(aa)
+
+
+VIEW(STRUCT([a,af,aa]))
+
+

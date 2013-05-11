@@ -1,0 +1,78 @@
+def ruota (larg_ruota ,raggiomin_ruota,raggiomax_ruota,m1, m2):
+	def TORUS1 (radius):
+		r1 , r2 = radius
+		def TORUS0 (subds):
+			N , M = subds
+			a=0.5*(r2-r1)
+			c=0.5*(r1+r2)
+			domain=Plasm.power(  INTERVALS(PI*2)(N),  INTERVALS(PI)(M)  )
+			fx =   lambda p: (c+a*math.cos(p[1])) * math.cos(p[0])
+			fy =   lambda p: (c+a*math.cos(p[1])) * math.sin (p[0])
+			fz =   lambda p: a*math.sin(p[1])
+			return MAP(([fx,fy,fz]))(domain)
+		return TORUS0
+#larg_ruota =0.5
+#raggiomin_ruota=1
+#raggiomax_ruota=2
+#rmax_cerchionemax= raggio del cerchione più esterno
+#m1=0.80
+#m2=0.85
+	r1=COLOR(BLACK)(TORUS1([raggiomin_ruota, raggiomax_ruota])([50,50]))
+	r2=T(3)(- larg_ruota)(ROTATE([3,1])(PI)(COLOR(BLACK)(TORUS1([raggiomin_ruota,raggiomax_ruota])([50,50]))))
+	r3=COLOR(BLACK)(T(3)(- larg_ruota)(TUBE ([raggiomin_ruota, raggiomax_ruota,larg_ruota]) (50)))
+
+#CERCHIONE
+	r4=COLOR(RED) (TUBE ([m1,m2, larg_ruota/3]) (50))
+
+	r5=COLOR(BLUE) (TUBE ([m2, raggiomin_ruota, larg_ruota/6]) (50))
+	r6=COLOR(BLUE) (T(3)(-0.5)(TUBE ([m2, raggiomin_ruota, larg_ruota/6]) (50)))
+	r7= COLOR(RED) (T(3)(-0.55)(TUBE ([m1, m2, larg_ruota/3]) (50)))
+	
+	q1=0.2
+	q2=0.4
+	s1=COLOR(BLUE) (TUBE ([q1, q2, larg_ruota/6]) (50))
+	q3=0.6
+	s2=COLOR(RED) (TUBE ([q2, q3, larg_ruota/3]) (50))
+	s4=COLOR(RED) (TUBE ([0.0, q1, larg_ruota/3]) (50))
+
+
+	s1a=COLOR(BLUE) (T(3)(-0.5)(TUBE ([q1, q2, larg_ruota/6]) (50)))
+	s2a=COLOR(RED) (T(3)(-0.55)(TUBE ([q2, q3, larg_ruota/3]) (50)))
+	s4a=COLOR(RED) (T(3)(-0.55)(TUBE ([0.0, q1, larg_ruota/3]) (50)))
+	
+	b0=T(2)(q3)(CYLINDER([larg_ruota/6,(m1-q3)])(20))
+	b2=R([3,2])(PI/2)(b0)
+	b1=T(2)(q3)(b2)
+	k1=R([1,2])(PI/1.5)(b1)
+	k2=R([1,2])(PI/1.5)(k1)
+	b1s=T(3)(0.55)(b1)
+	k1s=T(3)(0.55)(k1)
+	k2s=T(3)(0.55)(k2)
+	
+	cilindri=COLOR(BLACK)(T(3)(0.15)(STRUCT([b1,k1,k2,b1s,k1s,k2s])))
+	
+	
+	
+	a1=T(2)(q1+0.1)(SPHERE(0.1)([8,8]))
+	a2=R([1,2])(PI/1.5)(a1)
+	a3=R([1,2])(PI/1.5)(a2)
+	sfere=COLOR(BLACK)(STRUCT([a1,a2,a3]))
+	sferes=T(3)(-0.43)(sfere)
+
+
+	return STRUCT([r1,r2,r3,r4,r5,r6,r7,s1,s2,s4,s1a,s2a,s4a,cilindri,sfere,sferes])
+	
+
+
+a=S(1)(0.1)(ruota(0.5,1,2,0.80,0.85))
+b=S(2)(0.1)(a)
+c=S(3)(0.1)(b)
+VIEW(c)
+
+
+
+
+
+
+
+

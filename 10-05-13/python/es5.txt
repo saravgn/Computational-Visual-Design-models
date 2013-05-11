@@ -1,0 +1,204 @@
+##################################SCOCCA#########################################################################
+
+domain2 = POWER([INTERVALS(1)(10),INTERVALS(1)(10)])
+
+p0 = BEZIER(S1)([[0.07, 4.69,-0.25], [0.02, 5.31,-0.2], [0.2, 5.19,-0.2], [0.42, 5.28,-0.25]])
+p1 = BEZIER(S1)([[0.25, 4.69,0.10], [0.32, 5.22,0.10], [0.36, 5.06,0.10], [0.42, 5.28,0.10]])
+p2 = BEZIER(S1)([[0.34, 4.69,0], [0.4, 5.18,0], [0.51, 5.35,0], [0.7, 5.36,0]])
+p3 = BEZIER(S1)([[0.57, 4.69,0], [0.58, 5.23,0], [0.64, 5.3,0], [0.7, 5.36,0]])
+
+p12=BEZIER(S1)([[0.07, 4.69,-0.25], [0.25, 4.69,0.10], [0.34, 4.69,0], [0.57, 4.69,0]])
+p13=BEZIER(S1)([[0.42, 5.28,-0.25], [0.42, 5.28,0.10],[0.7, 5.36,0], [0.7, 5.36,0]])
+
+
+p4 = BEZIER(S1)([[0.58, 5.32,0], [0.58, 5.37,0], [1.17, 5.46,0], [1.29, 5.42,0]])
+p45 = BEZIER(S1)([[0.58, 5,0], [0.58, 5.37,0.25], [1.17, 5,0.25], [1.31, 5.42,0]])
+p5 = BEZIER(S1)([[0.53, 4.69,0], [0.61, 5.33,0], [1.3, 5.22,0], [1.31, 4.63,0]])
+
+
+p6 = BEZIER(S1)([[1.25, 5.38,0], [2.13, 5.96,0.2], [2.92, 5.95,0], [3.42, 5.76,0]])
+p7 = BEZIER(S1)([[1.35, 4.64,0], [1.7, 4.62,0.25], [2.56, 4.64,0.25], [3.33, 4.65,0]])
+
+
+p8 = BEZIER(S1)([[3.31, 4.69,0], [3.36, 5.38,0.2], [4.08, 5.3,0.2], [4.15, 4.7,0]])
+p9 = BEZIER(S1)([[3.28, 5.8,0], [3.35, 5.81,0], [4, 5.71,0], [4.13, 5.61,0]])
+
+p10 = BEZIER(S1)([[4.06, 5.59,0], [4.19, 5.61,0], [4.47, 5.52,0], [4.61, 4.75,-0.2]])
+p111 = BEZIER(S1)([[4.15, 4.74,0], [4.24, 4.72,0], [4.46, 4.71,0], [4.61, 4.75,-0.2]])
+
+
+
+out = MAP(BEZIER(S2)([p0,p1,p2,p3]))(  POWER([INTERVALS(1)(10),INTERVALS(1)(10)])  )
+
+out1 = MAP(BEZIER(S2)([p4,p5]))(  POWER([INTERVALS(1)(10),INTERVALS(1)(10)])  )
+
+out2 = MAP(BEZIER(S2)([p6,p7]))(  POWER([INTERVALS(1)(10),INTERVALS(1)(10)])  )
+
+out3 = MAP(BEZIER(S2)([p8,p9]))(  POWER([INTERVALS(1)(10),INTERVALS(1)(10)])  )
+
+out4 = MAP(BEZIER(S2)([p10,p111]))(  POWER([INTERVALS(1)(10),INTERVALS(1)(10)])  )
+
+out5= MAP(BEZIER(S2)([p12,p13]))(  POWER([INTERVALS(1)(10),INTERVALS(1)(10)])  )
+
+#VIEW(COLOR(BLACK)(STRUCT([out,out1,out2,out3,out4,out5])))
+
+l=1.99
+
+#riscrivo i punti 
+
+p0n = BEZIER(S1)([[0.07, 4.69,(-l+0.25)], [0.02, 5.31,(-l+0.2)], [0.2, 5.19,(-l+0.2)], [0.42, 5.28,(-l+0.25)]])
+
+p1n = BEZIER(S1)([[0.25, 4.69,-l-0.10], [0.32, 5.22,-l-0.10], [0.36, 5.06,-l-0.10], [0.42, 5.28,-l-0.10]])
+p2n = BEZIER(S1)([[0.34, 4.69,-l], [0.4, 5.18,-l], [0.51, 5.35,-l], [0.7, 5.36,-l]])
+p3n= BEZIER(S1)([[0.54, 4.69,-l], [0.57, 5.23,-l], [0.64, 5.3,-l], [0.7, 5.36,-l]])
+
+
+p4n = BEZIER(S1)([[0.58, 5.32,-l], [0.58, 5.37,-l], [1.17, 5.46,-l], [1.29, 5.42,-l]])
+p45n = BEZIER(S1)([[0.58, 5,-l], [0.58, 5.37,(-l-0.25)], [1.17, 5,(-l-0.25)], [1.31, 5.42,-l]])
+p5n = BEZIER(S1)([[0.53, 4.69,-l], [0.61, 5.33,-l], [1.3, 5.22,-l], [1.31, 4.63,-l]])
+
+
+p6n = BEZIER(S1)([[1.25, 5.38,-l], [2.13, 5.96,(-l-0.2)], [2.92, 5.95,-l], [3.42, 5.76,-l]])
+p7n = BEZIER(S1)([[1.35, 4.64,-l], [1.7, 4.62,(-l-0.25)], [2.56, 4.64,(-l-0.25)], [3.33, 4.65,-l]])
+
+
+p8n = BEZIER(S1)([[3.31, 4.69,-l], [3.36, 5.38,(-l+0.2)], [4.08, 5.3,(-l+0.2)], [4.15, 4.7,-l]])
+p9n = BEZIER(S1)([[3.28, 5.8,-l], [3.35, 5.81,-l], [4, 5.71,-l], [4.13, 5.61,-l]])
+
+p10n = BEZIER(S1)([[4.06, 5.59,-l], [4.19, 5.61,-l], [4.47, 5.52,-l], [4.61, 4.75,(-l+0.2)]])
+p111n = BEZIER(S1)([[4.15, 4.74,-l], [4.24, 4.72,-l], [4.46, 4.71,-l], [4.61, 4.75,(-l+0.2)]])
+
+p12n=BEZIER(S1)([[0.07, 4.69,(-l+0.25)], [0.25, 4.69,(-l-0.10)], [0.34, 4.69,-l], [0.57, 4.69,-l]])
+p13n=BEZIER(S1)([[0.42, 5.28,(-l+0.25)], [0.42, 5.28,(-l+0.10)],[0.7, 5.36,-l], [0.7, 5.36,-l]])
+
+
+
+#out
+
+
+outn = MAP(BEZIER(S2)([p0n,p1n,p2n,p3n]))(  POWER([INTERVALS(1)(10),INTERVALS(1)(10)])  )
+
+out1n = MAP(BEZIER(S2)([p4n,p5n]))(  POWER([INTERVALS(1)(10),INTERVALS(1)(10)])  )
+
+out2n = MAP(BEZIER(S2)([p6n,p7n]))(  POWER([INTERVALS(1)(10),INTERVALS(1)(10)])  )
+
+out3n = MAP(BEZIER(S2)([p8n,p9n]))(  POWER([INTERVALS(1)(10),INTERVALS(1)(10)])  )
+
+out4n = MAP(BEZIER(S2)([p10n,p111n]))(  POWER([INTERVALS(1)(10),INTERVALS(1)(10)])  )
+
+out5n= MAP(BEZIER(S2)([p12n,p13n]))(  POWER([INTERVALS(1)(10),INTERVALS(1)(10)])  )
+
+
+
+merge0=MAP(BEZIER(S2)([p0,p0n]))(domain2)
+#merge1=MAP(BEZIER(S2)([p1,p1n]))(domain2)
+merge2=MAP(BEZIER(S2)([p2,p2n]))(domain2)
+merge3=MAP(BEZIER(S2)([p3,p3n]))(domain2)
+merge4=MAP(BEZIER(S2)([p4,p4n]))(domain2)
+merge5=MAP(BEZIER(S2)([p5,p5n]))(domain2)
+merge6=MAP(BEZIER(S2)([p6,p6n]))(domain2)
+merge7=MAP(BEZIER(S2)([p7,p7n]))(domain2)
+merge8=MAP(BEZIER(S2)([p8,p8n]))(domain2)
+merge9=MAP(BEZIER(S2)([p9,p9n]))(domain2)
+merge10=MAP(BEZIER(S2)([p10,p10n]))(domain2)
+merge11=MAP(BEZIER(S2)([p111,p111n]))(domain2)
+merge12=MAP(BEZIER(S2)([p10n,p111n]))(domain2)
+merge13=MAP(BEZIER(S2)([p12,p12n]))(domain2)
+merge14=MAP(BEZIER(S2)([p13,p13n]))(domain2)
+
+
+ami=STRUCT([merge0,merge2,merge3,merge4,merge5,merge6,merge7,merge7,merge8])
+asi=STRUCT([ami,out2,out3,out4,out5,outn,out1n,out2n,out3n,out4n,out5n])
+ali=STRUCT([asi,merge9,merge10,merge11,merge12,merge13,merge14,out,out1])
+
+#VIEW(COLOR(BLACK)(a))
+a=COLOR(BLACK)(ali)
+
+
+##########################################################################RUOTA####################################################
+
+
+def ruota (larg_ruota ,raggiomin_ruota,raggiomax_ruota,m1, m2):
+	def TORUS1 (radius):
+		r1 , r2 = radius
+		def TORUS0 (subds):
+			N , M = subds
+			a=0.5*(r2-r1)
+			c=0.5*(r1+r2)
+			domain=Plasm.power(  INTERVALS(PI*2)(N),  INTERVALS(PI)(M)  )
+			fx =   lambda p: (c+a*math.cos(p[1])) * math.cos(p[0])
+			fy =   lambda p: (c+a*math.cos(p[1])) * math.sin (p[0])
+			fz =   lambda p: a*math.sin(p[1])
+			return MAP(([fx,fy,fz]))(domain)
+		return TORUS0
+#larg_ruota =0.5
+#raggiomin_ruota=1
+#raggiomax_ruota=2
+#rmax_cerchionemax= raggio del cerchione più esterno
+#m1=0.80
+#m2=0.85
+	r1=COLOR(BLACK)(TORUS1([raggiomin_ruota, raggiomax_ruota])([50,50]))
+	r2=T(3)(- larg_ruota)(ROTATE([3,1])(PI)(COLOR(BLACK)(TORUS1([raggiomin_ruota,raggiomax_ruota])([50,50]))))
+	r3=COLOR(BLACK)(T(3)(- larg_ruota)(TUBE ([raggiomin_ruota, raggiomax_ruota,larg_ruota]) (50)))
+
+#CERCHIONE
+	r4=COLOR(RED) (TUBE ([m1,m2, larg_ruota/3]) (50))
+
+	r5=COLOR(BLUE) (TUBE ([m2, raggiomin_ruota, larg_ruota/6]) (50))
+	r6=COLOR(BLUE) (T(3)(-0.5)(TUBE ([m2, raggiomin_ruota, larg_ruota/6]) (50)))
+	r7= COLOR(RED) (T(3)(-0.55)(TUBE ([m1, m2, larg_ruota/3]) (50)))
+	
+	q1=0.2
+	q2=0.4
+	s1=COLOR(BLUE) (TUBE ([q1, q2, larg_ruota/6]) (50))
+	q3=0.6
+	s2=COLOR(RED) (TUBE ([q2, q3, larg_ruota/3]) (50))
+	s4=COLOR(RED) (TUBE ([0.0, q1, larg_ruota/3]) (50))
+
+
+	s1a=COLOR(BLUE) (T(3)(-0.5)(TUBE ([q1, q2, larg_ruota/6]) (50)))
+	s2a=COLOR(RED) (T(3)(-0.55)(TUBE ([q2, q3, larg_ruota/3]) (50)))
+	s4a=COLOR(RED) (T(3)(-0.55)(TUBE ([0.0, q1, larg_ruota/3]) (50)))
+	
+	b0=T(2)(q3)(CYLINDER([larg_ruota/6,(m1-q3)])(20))
+	b2=R([3,2])(PI/2)(b0)
+	b1=T(2)(q3)(b2)
+	k1=R([1,2])(PI/1.5)(b1)
+	k2=R([1,2])(PI/1.5)(k1)
+	b1s=T(3)(0.55)(b1)
+	k1s=T(3)(0.55)(k1)
+	k2s=T(3)(0.55)(k2)
+	
+	cilindri=COLOR(BLACK)(T(3)(0.15)(STRUCT([b1,k1,k2,b1s,k1s,k2s])))
+	
+	
+	
+	a1=T(2)(q1+0.1)(SPHERE(0.1)([8,8]))
+	a2=R([1,2])(PI/1.5)(a1)
+	a3=R([1,2])(PI/1.5)(a2)
+	sfere=COLOR(BLACK)(STRUCT([a1,a2,a3]))
+	sferes=T(3)(-0.43)(sfere)
+
+
+	return STRUCT([r1,r2,r3,r4,r5,r6,r7,s1,s2,s4,s1a,s2a,s4a,cilindri,sfere,sferes])
+
+
+am=S(1)(0.17)(ruota(0.5,1,2,0.80,0.85))
+b=S(2)(0.17)(am)
+c1=S(3)(0.17)(b)
+
+
+c2=T(2)(4.75)(c1)
+c=T(1)(0.9)(c2)
+ruota2=T(1)(2.8)(c)
+ruota3=T(3)(-1.9)(ruota2)
+ruota4=T(1)(-2.8)(ruota3)
+VIEW(STRUCT([c,a,ruota2,ruota3,ruota4]))
+
+
+
+
+
+
+
+	
