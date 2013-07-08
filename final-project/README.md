@@ -1,3 +1,3 @@
-The site can be seen at [site-link](https://github.com/saravgn/saravgn.github.io)
+The site can be seen at https://saravgn.github.io
 
 
