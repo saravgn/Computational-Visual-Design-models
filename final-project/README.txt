@@ -1,1 +1,0 @@
-The site can be seen at [site](saravgn.github.io)
