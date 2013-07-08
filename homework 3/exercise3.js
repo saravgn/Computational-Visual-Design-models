@@ -2,6 +2,7 @@ var matrixPointsZ = {};
 
 
 
+
 function DTM(ascissa,ordinata,collina,montagna,slices,verticivert) {
 
 
@@ -14,7 +15,7 @@ function DTM(ascissa,ordinata,collina,montagna,slices,verticivert) {
 
 	var domainDTM = PROD1x1([INTERVALS(1)(50),INTERVALS(1)(50)])
 	var bezierTotale = new Array();
-
+	var lasti=0;
 	for (var i=0; i<=ascissa; i=i+(ascissa/slices)) {
 
 		if (i===0 || i===ascissa) {
@@ -64,10 +65,15 @@ function DTM(ascissa,ordinata,collina,montagna,slices,verticivert) {
 			bezierTotale.push(BEZIER(S0)(controlPointsArray));
 
 		}
-
+		lasti+=i;
 	}
+
+	if (lasti !== ascissa) {
+		bezierTotale.push(BEZIER(S0)([[ascissa,0,0],[ascissa,ordinata,0]]));
+	}
+
 	color = [(210/255), (105/255), (30/255)];
-	
+
 
 //a=STRUCT([modelMontagna, modelMontagna1])
 
