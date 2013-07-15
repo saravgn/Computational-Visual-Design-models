@@ -275,7 +275,7 @@ agglomerato=villaggio()
 
 
 agglomerato=SCALE([0,1,2])([5,5,5])(agglomerato)
-agglomerato = T([2])([-0.2])(agglomerato)
+agglomerato = T([2])([-0.5])(agglomerato)
 
 
 //agglomerato= T([0,1,2])([xbaselago+xbasecolle,0,0])(agglomerato)
