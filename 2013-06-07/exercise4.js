@@ -177,7 +177,7 @@ DRAW(COLOR([(171/255), (205/255), (239/255),(0.85)])(lago))
 
 
 
-function casa(dim){
+function casa(){
 
 var points = [[0,0],[1,0],[0,1],[1,1],[0.5,1.5]];
 	var cells = [[0,1,2],[1,3,2],[2,3,4]];
@@ -185,7 +185,7 @@ var points = [[0,0],[1,0],[0,1],[1,1],[0.5,1.5]];
 
 	var extruded = EXTRUDE([1])(simplicialComplex)
 
-	extruded= SCALE([0,1,2])([dim/10,dim/10,dim/10])(extruded);
+	extruded= SCALE([0,1,2])([1/6,1/6,1/6])(extruded);
 
 
 return(extruded)
@@ -198,44 +198,42 @@ return(extruded)
 
 function villaggio(){
 
-for(var i=0;i<=7;i++){
 
-casa1= T([0,1,2])([0.5,0,0.1])(casa(Math.random()*2))
+casa1= T([0,1,2])([0.5,0,0.1])(casa())
 
 casa1=COLOR([(249/255),(132/255),(229/255)])(casa1)
 
-casa2= T([0,1,2])([0.8,0,0.5])(casa(Math.random()*2))
+casa2= T([0,1,2])([0.8,0,0.5])(casa())
 
 
 casa2=COLOR([(269/255),(112/255),(9/255)])(casa2)
 
-casa3= T([0,1,2])([0.4,0,0.7])(casa(Math.random()*2))
+casa3= T([0,1,2])([0.4,0,0.7])(casa())
 
 
 casa3=COLOR([(79/255),(132/255),(239/255)])(casa3)
 
-casa4= T([0,1,2])([0.2,0,0.1])(casa(Math.random()*2))
+casa4= T([0,1,2])([0.2,0,0.1])(casa())
 
 
 casa4=COLOR([(24/255),(12/255),(27/255)])(casa4)
 
-casa5= T([0,1,2])([1.4,0,0.5])(casa(Math.random()*2))
+casa5= T([0,1,2])([1.4,0,0.5])(casa())
 
 
 casa5=COLOR([(29/255),(13/255),(29/255)])(casa5)
 
-casa6= T([0,1,2])([-0.1,0,0.1])(casa(Math.random()*2))
+casa6= T([0,1,2])([-0.1,0,0.1])(casa())
 
 
 casa6=COLOR([(249/255),(132/255),(229/255)])(casa6)
 
-casa7= T([0,1,2])([0.1,0,0.3])(casa(Math.random()*2))
+casa7= T([0,1,2])([0.1,0,0.3])(casa())
 
 
 settlement=STRUCT([casa1, casa2, casa3, casa4, casa5, casa6, casa7])
 
 
-}
 settlement=ROTATE([1,2])(PI/2)(settlement)
 
 
@@ -277,6 +275,7 @@ agglomerato=villaggio()
 
 
 agglomerato=SCALE([0,1,2])([5,5,5])(agglomerato)
+agglomerato = T([2])([-0.2])(agglomerato)
 
 
 //agglomerato= T([0,1,2])([xbaselago+xbasecolle,0,0])(agglomerato)
