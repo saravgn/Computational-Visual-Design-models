@@ -1,7 +1,6 @@
 
-
 var matrixPointsZ = {};
-
+ 
 //------------------------------------------------
 
 function DTM(ascissa,ordinata,collina,montagna,slices,verticivert) {
