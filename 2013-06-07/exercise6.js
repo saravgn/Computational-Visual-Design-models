@@ -1,5 +1,4 @@
 
-
 FV = [[5,6,7,8],
 [0,5,8],
 [0,4,5],
@@ -21,7 +20,7 @@ V = [[0,6],
 [3,6]]
 
 var x = [V,FV]
-var obj = lar_to_obj(larModel);
+var obj = Objlar(x);
 
 
 
@@ -31,7 +30,7 @@ function Objlar(x){
 
 //inizializzare le variabili
 	var V = x[0];
-	var FV = larModel[1];
+	var FV = x[1];
 	var vertices = V.length;
 // istanziare le faces
 	var faces = FV.length;
