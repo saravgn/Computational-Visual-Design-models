@@ -261,7 +261,7 @@ a2=R([0,2])([PI/2])(a1)
 a2= T([0,1,2])([0.3,0,3.7])(a2)
 
 
-strada=STRUCT([a,a1])
+strada=T([2])([-0.3])(STRUCT([a,a1]))
 
 //strada=SCALE([0,1,2])([0.5,0.5,0.5])(strada)
 
